@@ -1,0 +1,17 @@
+{
+  "name": "hydra-blaster-svcs",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Carlos Justiniano",
+  "license": "MIT",
+  "dependencies": {
+    "hydra-express": "1.8.2",
+    "hydra-plugin-hls": "0.2.6"
+  },
+  "devDependencies": {
+    "eslint": "7.15.0",
+    "eslint-config-google": "0.14.0"
+  }
+}
