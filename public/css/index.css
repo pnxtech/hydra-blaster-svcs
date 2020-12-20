@@ -1,0 +1,15 @@
+#home_intro {
+  opacity: 0.6;
+  padding-top: 0.5rem;
+}
+
+#home_swipeText {
+  text-align: center;
+  opacity: 0.6;
+  padding-top: 1rem;
+}
+
+#about_intro {
+  opacity: 0.6;
+  padding-top: 0.5rem;
+}

@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Hydra Blaster</title>
-
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
 
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.10.6/css/onsenui.css">
@@ -13,8 +12,8 @@
 
   <link rel="stylesheet" href="css/onsenui.css">
   <link rel="stylesheet" href="css/dark-onsen-css-components.min.css">
+  <link rel="stylesheet" href="css/index.css">
   <script type="text/javascript" src="js/onsenui.min.js"></script>
-
 </head>
 
 <body>
@@ -46,10 +45,23 @@
           </ons-toolbar-button>
         </div>
         <div class="center">
-          Main
+          Hydra Communication Blaster
         </div>
       </ons-toolbar>
-      <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+      <ons-card>
+        <div class="title">
+          Welcome
+        </div>
+        <div class="content">
+          <p id="home_intro">
+            This application is designed to enable remote devices to fire messages at a HydraRouter gateway and thus to any accessible microservice within a cluster.
+          </p>
+          <p id="home_intro">
+            This enables you to use mobile devices and other computers to create small amounts of communication load.  And you can share links to this app so that others can help generate traffic from remote locations.
+          </p>
+        </div>
+      </ons-card>
+      <p id="home_swipeText">
         Swipe right to open the menu!
       </p>
     </ons-page>
@@ -82,6 +94,19 @@
           About
         </div>
       </ons-toolbar>
+      <ons-card>
+        <div class="title">
+          Hydra Blaster
+        </div>
+        <div class="content">
+          <p id="about_intro">
+            version: 1.0.0
+          </p>
+          <p id="about_intro">
+
+          </p>
+        </div>
+      </ons-card>
     </ons-page>
   </template>
   <script type="text/javascript" src="js/index.js"></script>
