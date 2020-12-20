@@ -1,2 +1,3 @@
-# comblaster
-Communication Blaster
+# hydra-blaster-svcs
+Hydra Communication Blaster Service
+
