@@ -18,31 +18,72 @@
 </head>
 
 <body>
-  <ons-navigator swipeable id="myNavigator" page="page1.html"></ons-navigator>
+  <ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+      <ons-page>
+        <ons-list>
+          <ons-list-item href="home.html" tappable>
+            Home
+          </ons-list-item>
+          <ons-list-item href="settings.html" tappable>
+            Settings
+          </ons-list-item>
+          <ons-list-item href="about.html" tappable>
+            About
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+  </ons-splitter>
 
-  <template id="page1.html">
-    <ons-page id="page1">
+  <template id="home.html">
+    <ons-page>
       <ons-toolbar>
-        <div class="center">Hydra Blaster</div>
+        <div class="left">
+          <ons-toolbar-button>
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Main
+        </div>
       </ons-toolbar>
-
-      <p>Welcome to Hydra Blaster</p>
-
-      <ons-button id="push-button">Push page</ons-button>
+      <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+        Swipe right to open the menu!
+      </p>
     </ons-page>
   </template>
 
-  <template id="page2.html">
-    <ons-page id="page2">
+  <template id="settings.html">
+    <ons-page>
       <ons-toolbar>
-        <div class="left"><ons-back-button>Page 1</ons-back-button></div>
-        <div class="center"></div>
+        <div class="left">
+          <ons-toolbar-button>
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Settings
+        </div>
       </ons-toolbar>
-
-      <p>This is the second page.</p>
     </ons-page>
   </template>
 
+  <template id="about.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button>
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          About
+        </div>
+      </ons-toolbar>
+    </ons-page>
+  </template>
   <script type="text/javascript" src="js/index.js"></script>
 </body>
 
