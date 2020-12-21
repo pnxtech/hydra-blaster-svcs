@@ -1,7 +1,9 @@
-document.addEventListener('init', (event) => {
+document.addEventListener('DOMContentLoaded', function(event) {
   window.app = new App(config);
   window.stor = window.app.getStor();
+})
 
+document.addEventListener('init', function(event) {
   const navItem = document.querySelectorAll('#menu ons-list-item');
   navItem.forEach((element)=> {
     element.addEventListener('click', loadPage);
@@ -18,7 +20,7 @@ document.addEventListener('init', (event) => {
   else if (event.target.matches('#settings')) {
     window.app.handleSettingsPage();
   }
-});
+})
 
 function loadPage(event) {
   let page = this.getAttribute('href');

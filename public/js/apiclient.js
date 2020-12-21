@@ -3,13 +3,6 @@ class APIClient {
     this.apiUrl = `${config.apiServer.targetServer}/${config.apiServer.version}`;
   }
 
-  getUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-      let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
-
   async makeRequest(options) {
     if (!options.endpoint) {
       throw new Error('makeRequest: endpoint is a required options field');

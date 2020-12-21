@@ -57,10 +57,12 @@
         </div>
         <div class="content">
           <p id="home_intro">
-            This application is designed to enable remote devices to fire messages at a HydraRouter gateway and thus to any accessible microservice within a cluster.
+            This application is designed to enable remote devices to fire messages at a HydraRouter gateway and thus to
+            any accessible microservice within a cluster.
           </p>
           <p id="home_intro">
-            This enables you to use mobile devices and other computers to create small amounts of communication load.  And you can share links to this app so that others can help generate traffic from remote locations.
+            This enables you to use mobile devices and other computers to create small amounts of communication load.
+            And you can share links to this app so that others can help generate traffic from remote locations.
           </p>
         </div>
       </ons-card>
@@ -86,9 +88,30 @@
         <div class="title">Test settings</div>
         <div class="content">
           <ons-list id="settings_list">
-            <ons-list-header><ons-icon id="settings_titleIcon" icon="fa-server"></ons-icon>Server</ons-list-header>
+            <ons-list-header>
+              <ons-icon id="settings_titleIcon" icon="fa-server"></ons-icon>Server
+            </ons-list-header>
             <ons-list-item modifier="nodivider">
               <ons-input id="settings_serverPath" modifier="underbar" placeholder="" float></ons-input>
+            </ons-list-item>
+            <ons-list-header>
+              <ons-icon id="settings_titleIcon" icon="fa-envelope"></ons-icon>Message
+            </ons-list-header>
+            <ons-list-item modifier="nodivider">
+              <ons-row>
+                <div id="settings_editor"></div>
+              </ons-row>
+              <ons-row>
+                <ons-button class="settings_editorIcon" id="editor_createMessage">
+                  <ons-icon icon="fa-plus-square"></ons-icon>
+                </ons-button>
+                <ons-button class="settings_editorIcon" id="editor_updateMessage">
+                  <ons-icon icon="fa-id-card"></ons-icon>
+                </ons-button>
+                <ons-button class="settings_editorIcon" id="editor_reformatMessage">
+                  <ons-icon icon="fa-paint-brush"></ons-icon>
+                </ons-button>
+              </ons-row>
             </ons-list-item>
             <ons-list-header>Transport</ons-list-header>
             <ons-list-item modifier="nodivider">
@@ -97,7 +120,9 @@
                 <button>Queue Message</button>
               </ons-segment>
             </ons-list-item>
-            <ons-list-header><ons-icon id="settings_titleIcon" icon="fa-fighter-jet"></ons-icon>Frequency</ons-list-header>
+            <ons-list-header>
+              <ons-icon id="settings_titleIcon" icon="fa-fighter-jet"></ons-icon>Frequency
+            </ons-list-header>
             <ons-list-item modifier="nodivider">
               <ons-row>
                 <ons-col width="40px" style="text-align: center; line-height: 41px;">
@@ -115,11 +140,6 @@
                   <p id="settings_frequencyText">Transmit every 15 milliseconds</p>
                 </ons-list-item>
               </ons-row>
-            </ons-list-item>
-            <ons-list-header><ons-icon id="settings_titleIcon" icon="fa-envelope"></ons-icon>Message</ons-list-header>
-            <ons-list-item modifier="nodivider">
-              <textarea id="settings_payload">
-              </textarea>
             </ons-list-item>
           </ons-list>
           <ons-row>
@@ -166,14 +186,18 @@
             version: <span id="about_appversion"></span>
           </p>
           <p id="about_intro">
-            Hydra Blaster is open source software available on <a id="about_link" href="https://github.com/pnxtech/hydra-blaster-svcs">GitHub</a>. Created with ❤️ from  Salt Lake City, Utah.
+            Hydra Blaster is open source software available on <a id="about_link"
+              href="https://github.com/pnxtech/hydra-blaster-svcs">GitHub</a>. Created with ❤️ from Salt Lake City,
+            Utah.
           </p>
         </div>
       </ons-card>
     </ons-page>
   </template>
 
+  <script type="text/javascript" src="js/ace/ace.js"></script>
   <script type="text/javascript" src="js/config.js"></script>
+  <script type="text/javascript" src="js/umf.js"></script>
   <script type="text/javascript" src="js/apiclient.js"></script>
   <script type="text/javascript" src="js/appstorage.js"></script>
   <script type="text/javascript" src="js/pubsub.js"></script>
