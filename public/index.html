@@ -27,6 +27,9 @@
           <ons-list-item href="settings.html" tappable>
             Settings
           </ons-list-item>
+          <ons-list-item href="blaster.html" tappable>
+            Blaster
+          </ons-list-item>
           <ons-list-item href="about.html" tappable>
             About
           </ons-list-item>
@@ -37,7 +40,7 @@
   </ons-splitter>
 
   <template id="home.html">
-    <ons-page>
+    <ons-page id="home">
       <ons-toolbar>
         <div class="left">
           <ons-toolbar-button>
@@ -68,7 +71,7 @@
   </template>
 
   <template id="settings.html">
-    <ons-page>
+    <ons-page id="settings">
       <ons-toolbar>
         <div class="left">
           <ons-toolbar-button>
@@ -79,11 +82,73 @@
           Settings
         </div>
       </ons-toolbar>
+      <ons-card>
+        <div class="title">Test settings</div>
+        <div class="content">
+          <ons-list id="settings_list">
+            <ons-list-header><ons-icon id="settings_titleIcon" icon="fa-server"></ons-icon>Server</ons-list-header>
+            <ons-list-item modifier="nodivider">
+              <ons-input id="settings_serverPath" modifier="underbar" placeholder="" float></ons-input>
+            </ons-list-item>
+            <ons-list-header>Transport</ons-list-header>
+            <ons-list-item modifier="nodivider">
+              <ons-segment id="settings_segment" class="centerThis">
+                <button>Send Message</button>
+                <button>Queue Message</button>
+              </ons-segment>
+            </ons-list-item>
+            <ons-list-header><ons-icon id="settings_titleIcon" icon="fa-fighter-jet"></ons-icon>Frequency</ons-list-header>
+            <ons-list-item modifier="nodivider">
+              <ons-row>
+                <ons-col width="40px" style="text-align: center; line-height: 41px;">
+                  <ons-icon icon="md-fast-rewind"></ons-icon>
+                </ons-col>
+                <ons-col>
+                  <ons-range style="width: 100%;" value="50"></ons-range>
+                </ons-col>
+                <ons-col width="40px" style="text-align: center; line-height: 41px;">
+                  <ons-icon icon="md-fast-forward"></ons-icon>
+                </ons-col>
+              </ons-row>
+              <ons-row>
+                <ons-list-item modifier="nodivider">
+                  <p id="settings_frequencyText">Transmit every 15 milliseconds</p>
+                </ons-list-item>
+              </ons-row>
+            </ons-list-item>
+            <ons-list-header><ons-icon id="settings_titleIcon" icon="fa-envelope"></ons-icon>Message</ons-list-header>
+            <ons-list-item modifier="nodivider">
+              <textarea id="settings_payload">
+              </textarea>
+            </ons-list-item>
+          </ons-list>
+          <ons-row>
+            <p id="settings_submit">
+              <ons-button>Save settings</ons-button>
+            </p>
+          </ons-row>
+        </div>
+      </ons-card>
+    </ons-page>
+  </template>
+
+  <template id="blaster.html">
+    <ons-page id="blaster">
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button>
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Blaster
+        </div>
+      </ons-toolbar>
     </ons-page>
   </template>
 
   <template id="about.html">
-    <ons-page>
+    <ons-page id="about">
       <ons-toolbar>
         <div class="left">
           <ons-toolbar-button>
@@ -95,20 +160,24 @@
         </div>
       </ons-toolbar>
       <ons-card>
-        <div class="title">
-          Hydra Blaster
-        </div>
+        <div class="title" id="about_apptitle"></div>
         <div class="content">
           <p id="about_intro">
-            version: 1.0.0
+            version: <span id="about_appversion"></span>
           </p>
           <p id="about_intro">
-
+            Hydra Blaster is open source software available on <a id="about_link" href="https://github.com/pnxtech/hydra-blaster-svcs">GitHub</a>. Created with ❤️ from  Salt Lake City, Utah.
           </p>
         </div>
       </ons-card>
     </ons-page>
   </template>
+
+  <script type="text/javascript" src="js/config.js"></script>
+  <script type="text/javascript" src="js/apiclient.js"></script>
+  <script type="text/javascript" src="js/appstorage.js"></script>
+  <script type="text/javascript" src="js/pubsub.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 </body>
 

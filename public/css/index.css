@@ -1,15 +1,58 @@
+.centerThis {
+  margin: 0 auto 0 auto;
+}
+
 #home_intro {
   opacity: 0.6;
   padding-top: 0.5rem;
+  color: lightgray;
 }
 
 #home_swipeText {
   text-align: center;
   opacity: 0.6;
   padding-top: 1rem;
+  color: lightgray;
 }
 
 #about_intro {
   opacity: 0.6;
   padding-top: 0.5rem;
+  color: lightgray;
+}
+
+#about_link {
+  text-decoration: bold;
+  color: lightgray;
+}
+
+#settings_list {
+  margin-top: 1rem;
+}
+
+#settings_serverPath {
+  width: 100%;
+}
+
+#settings_segment {
+  width: 15rem;
+}
+
+#settings_submit {
+  margin: 1rem auto 0 auto;
+}
+
+#settings_frequencyText {
+  text-align: center;
+  width: 100%;
+}
+
+#settings_payload {
+  text-align: left;
+  width: 100%;
+  height: 15rem;
+}
+
+#settings_titleIcon {
+  margin-right: 0.5rem;
 }
