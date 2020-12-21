@@ -1,6 +1,6 @@
 class APIClient {
   constructor(config) {
-    this.apiUrl = `${config.apiServer.targetServer}/${config.apiServer.version}`;
+    this.apiUrl = `${config.apiServer.targetServer}/${config.apiServer.version}/router`;
   }
 
   async makeRequest(options) {

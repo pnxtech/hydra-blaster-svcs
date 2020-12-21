@@ -20,6 +20,10 @@ document.addEventListener('init', function(event) {
   else if (event.target.matches('#settings')) {
     window.app.handleSettingsPageSetup();
   }
+  else if (event.target.matches('#blaster')) {
+    window.app.handleBlasterPageSetup();
+  }
+
 })
 
 function loadPage(event) {

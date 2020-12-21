@@ -6,6 +6,8 @@ class App {
     this.apiClient = new APIClient(this.config);
     this.appStorage = new AppLocalStorage();
     this.appID = (new UMF()).getUUID();
+    this.running = false;
+    this.totalMessagesSent = 0;
 
     let inStor = this.appStorage.get(this.appStoreKey);
     if (!Object.keys(inStor).length) {
@@ -136,4 +138,54 @@ class App {
     this.appStorage.put(this.appStoreKey, this.stor);
   }
 
+  handleBlasterPageSetup() {
+    if (this.stor.settings) {
+      let element = document.getElementById('blaster_summary');
+      element.innerHTML = `This screen will use the values from the settings screen to ${this.stor.settings.transport === 0 ? 'send' : 'queue'} the specified message to <b>${this.stor.settings.target}</b> at an interval frequency of <b>${this.stor.settings.interval}</b> milliseconds. Press the Start Blasting button to start.`;
+    }
+    let element = document.getElementById('blaster_submit');
+    element.addEventListener('click', this.handleBlasterSubmit.bind(this));
+  }
+
+  handleBlasterSubmit() {
+    let submitButton = document.getElementById('blaster_submit');
+    let status = document.getElementById('blaster_status');
+
+    let abort = () => {
+      clearInterval(this.timerInterval);
+      let elapsed = performance.now() - this.startTime;
+      ons.notification.alert(`${this.totalMessagesSent} messages transmitted in ${elapsed.toFixed(2)} milliseconds`);
+      submitButton.innerText = 'Start Blasting!'
+      this.running = false;
+      this.totalMessagesSent = 0;
+    };
+
+    if (!this.running) {
+      submitButton.innerText = 'Stop!'
+      this.startTime = performance.now();
+      this.running = true;
+      this.timerInterval = setInterval(async () => {
+        try {
+          let result = await this.apiClient.makeRequest({
+            endpoint: `${this.stor.settings.transport === 0 ? 'send' : 'queue'}`,
+            method: 'POST',
+            body: this.stor.settings.message
+          });
+          if (result.statusCode !== 200) {
+            status.innerHTML = `${result.statusDescription}`;
+            abort();
+          } else {
+            this.totalMessagesSent++;
+            status.innerHTML = `Total messages transmitted ${this.totalMessagesSent}`;
+          }
+        } catch (e) {
+          status.innerHTML = `${e}`;
+          abort();
+        }
+      }, this.stor.settings.interval);
+    } else {
+      abort();
+    }
+  }
 }
+

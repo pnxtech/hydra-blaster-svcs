@@ -56,11 +56,11 @@
           Welcome
         </div>
         <div class="content">
-          <p id="home_intro">
+          <p class="home_intro">
             This application is designed to enable remote devices to fire messages at a HydraRouter gateway and thus to
             any accessible microservice within a cluster.
           </p>
-          <p id="home_intro">
+          <p class="home_intro">
             This enables you to use mobile devices and other computers to create small amounts of communication load.
             And you can share links to this app so that others can help generate traffic from remote locations.
           </p>
@@ -166,7 +166,25 @@
           Blaster
         </div>
       </ons-toolbar>
-    </ons-page>
+      <ons-card>
+        <div class="title">Blaster</div>
+        <div class="content">
+          <ons-list">
+            <ons-list-header>Description</ons-list-header>
+            <ons-list-item modifier="nodivider">
+              <p class="blaster_intro" id="blaster_summary"></p>
+            </ons-list-item>
+            <ons-list-header>Tracker</ons-list-header>
+            <ons-list-item modifier="nodivider">
+              <p id="blaster_status"></p>
+            </ons-list-item>
+            <ons-list-item modifier="nodivider">
+              <ons-button class="" id="blaster_submit">Start Blasting!</ons-button>
+            </ons-list-item>
+          </ons-list>
+        </div>
+      </ons-card>
+  </ons-page>
   </template>
 
   <template id="about.html">
