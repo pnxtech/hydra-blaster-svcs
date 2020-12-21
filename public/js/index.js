@@ -15,10 +15,10 @@ document.addEventListener('init', function(event) {
   });
 
   if (event.target.matches('#about')) {
-    window.app.handleAboutPage();
+    window.app.handleAboutPageSetup();
   }
   else if (event.target.matches('#settings')) {
-    window.app.handleSettingsPage();
+    window.app.handleSettingsPageSetup();
   }
 })
 

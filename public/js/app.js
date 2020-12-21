@@ -32,7 +32,7 @@ class App {
     return this.stor;
   }
 
-  handleAboutPage() {
+  handleAboutPageSetup() {
     let element = document.getElementById('about_appversion');
     element.innerHTML = window.app.getVersion();
     element = document.getElementById('about_apptitle');
@@ -41,7 +41,7 @@ class App {
     // this.appStorage.put(this.appStoreKey, this.stor);
   }
 
-  handleSettingsPage() {
+  handleSettingsPageSetup() {
     let element = document.getElementById('settings_serverPath');
     element.setAttribute('value', this.stor.server.targetServer);
 
@@ -54,6 +54,8 @@ class App {
       useSoftTabs: true
     });
 
+    this.handleSettingsRestore();
+
     element = document.getElementById('editor_createMessage');
     element.addEventListener('click', this.handleEditorCreateMessage.bind(this));
 
@@ -62,6 +64,16 @@ class App {
 
     element = document.getElementById('editor_reformatMessage');
     element.addEventListener('click', this.handleEditorReformatMessage.bind(this));
+
+    let slider = document.getElementById('settings_slider');
+    let output = document.getElementById('settings_frequencyText');
+    output.innerHTML = `Transmit every ${slider.value * 10} millisecond(s)`;
+    slider.oninput = function() {
+      output.innerHTML = `Transmit every ${this.value * 10} millisecond(s)`;
+    }
+
+    element = document.getElementById('settings_submit');
+    element.addEventListener('click', this.handleSettingsSubmit.bind(this));
   }
 
   handleEditorCreateMessage() {
@@ -96,4 +108,32 @@ class App {
       this.editor.clearSelection();
     }
   }
+
+  handleSettingsRestore() {
+    if (this.stor.settings) {
+      let server = document.getElementById('settings_serverPath');
+      let slider = document.getElementById('settings_slider');
+      let transport = document.getElementById('settings_segment');
+      server.value = this.stor.settings.target;
+      slider.value = this.stor.settings.interval / 10;
+      transport.setActiveButton(this.stor.settings.transport);
+      this.editor.setValue(JSON.stringify(this.stor.settings.message, null, 2));
+      this.editor.clearSelection();
+    }
+  }
+
+  handleSettingsSubmit() {
+    let server = document.getElementById('settings_serverPath');
+    let slider = document.getElementById('settings_slider');
+    let transport = document.getElementById('settings_segment');
+    let msg = this.editor.getValue();
+    this.stor.settings = {
+      target: `${server.value}`,
+      message: JSON.parse(msg),
+      transport: transport.getActiveButtonIndex(),
+      interval: slider.value * 10
+    };
+    this.appStorage.put(this.appStoreKey, this.stor);
+  }
+
 }
