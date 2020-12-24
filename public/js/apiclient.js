@@ -1,9 +1,5 @@
 class APIClient {
-  constructor(config) {
-    this.apiUrl = `${config.apiServer.targetServer}/${config.apiServer.version}/router`;
-  }
-
-  async makeRequest(options) {
+  async makeRequest(url, options) {
     if (!options.endpoint) {
       throw new Error('makeRequest: endpoint is a required options field');
     }
@@ -18,7 +14,7 @@ class APIClient {
 
     options = Object.assign({}, defaultOptions, options);
 
-    let url = `${this.apiUrl}/${options.endpoint}`;
+    url = `${url}/${options.endpoint}`;
     let data = {
       headers: {
         'Accept': options.accept,

@@ -16,7 +16,7 @@
   <script type="text/javascript" src="js/onsenui.min.js"></script>
 </head>
 
-<body>
+<body id="app-container">
   <ons-splitter>
     <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
       <ons-page>
@@ -63,6 +63,9 @@
           <p class="home_intro">
             This enables you to use mobile devices and other computers to create small amounts of communication load.
             And you can share links to this app so that others can help generate traffic from remote locations.
+          </p>
+          <p class="home_intro">
+            This webapp is designed for mobile devices.  As such the app reformats its use of screen size to avoid looking overly large. If you're using this app on a non-mobile browser then you might try using chrome dev tools to select a simulated mobile device.
           </p>
         </div>
       </ons-card>
@@ -202,13 +205,12 @@
       <ons-card>
         <div class="title" id="about_apptitle"></div>
         <div class="content">
-          <p id="about_intro">
+          <p class="about_intro">
             version: <span id="about_appversion"></span>
           </p>
-          <p id="about_intro">
-            Hydra Blaster is open source software available on <a id="about_link"
-              href="https://github.com/pnxtech/hydra-blaster-svcs">GitHub</a>. Created with ❤️ from Salt Lake City,
-            Utah.
+          <p class="about_intro">
+            Hydra Blaster is open source software available on <a class="about_link" href="https://github.com/pnxtech/hydra-blaster-svcs">GitHub</a>. Created with ❤️ from Salt Lake City,
+            Utah. Pull requests and <a class="about_link" href="https://github.com/pnxtech/hydra-blaster-svcs">GitHub issues</a> are greatly appreciated.
           </p>
         </div>
       </ons-card>

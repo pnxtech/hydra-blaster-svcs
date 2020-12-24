@@ -166,7 +166,8 @@ class App {
       this.running = true;
       this.timerInterval = setInterval(async () => {
         try {
-          let result = await this.apiClient.makeRequest({
+          let url = `${this.stor.settings.target}/${config.apiServer.version}/router`;
+          let result = await this.apiClient.makeRequest(url, {
             endpoint: `${this.stor.settings.transport === 0 ? 'send' : 'queue'}`,
             method: 'POST',
             body: this.stor.settings.message

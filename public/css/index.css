@@ -15,13 +15,13 @@
   color: lightgray;
 }
 
-#about_intro {
+.about_intro {
   opacity: 0.6;
   padding-top: 0.5rem;
   color: lightgray;
 }
 
-#about_link {
+.about_link {
   text-decoration: bold;
   color: lightgray;
 }

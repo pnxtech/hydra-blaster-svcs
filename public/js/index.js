@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', function(event) {
   window.app = new App(config);
   window.stor = window.app.getStor();
-})
+  resetDOM()
+});
+
+window.onresize = function(event) {
+  resetDOM();
+}
 
 document.addEventListener('init', function(event) {
+  resetDOM();
   const navItem = document.querySelectorAll('#menu ons-list-item');
   navItem.forEach((element)=> {
     element.addEventListener('click', loadPage);
@@ -23,8 +29,7 @@ document.addEventListener('init', function(event) {
   else if (event.target.matches('#blaster')) {
     window.app.handleBlasterPageSetup();
   }
-
-})
+});
 
 function loadPage(event) {
   let page = this.getAttribute('href');
@@ -37,4 +42,13 @@ function loadPage(event) {
 function openMenu (event) {
   let menu = document.getElementById('menu');
   menu.open();
+}
+
+function resetDOM() {
+  let element = document.getElementById('app-container');
+  element.style.backgroundColor = 'black';
+  if (window.orientation === undefined) {
+    element.style.width = '30rem';
+    element.style.margin = '0 auto 0 auto';
+  }
 }
