@@ -48,7 +48,7 @@ function resetDOM() {
   let element = document.getElementById('app-container');
   element.style.backgroundColor = 'black';
   if (window.orientation === undefined) {
-    element.style.width = '30rem';
+    element.style.width = '50rem';
     element.style.margin = '0 auto 0 auto';
   }
 }
