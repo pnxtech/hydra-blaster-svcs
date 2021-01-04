@@ -8,7 +8,7 @@ const HydraLogger = require('hydra-plugin-hls/hydra-express');
 const hydraLogger = new HydraLogger();
 hydraExpress.use(hydraLogger);
 
-const config = require('./config.json');
+const config = require('./config/config.json');
 
 const HTTP_MOVED_PERMANENTLY = 301;
 
