@@ -1,13 +1,13 @@
 {
   "name": "hydra-blaster-svcs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "start": "node index.js"
   },
   "author": "Carlos Justiniano",
   "license": "MIT",
   "dependencies": {
-    "hydra-express": "1.8.2",
+    "hydra-express": "1.8.3",
     "hydra-plugin-hls": "0.2.6"
   },
   "devDependencies": {

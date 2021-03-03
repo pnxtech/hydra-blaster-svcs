@@ -41,6 +41,9 @@ function redirectMiddleware() {
  */
 let main = async () => {
   try {
+    if (process.env.REDIS_CONNECTION_STRING) {
+      config.hydra.redis.url = process.env.REDIS_CONNECTION_STRING;
+    }
     let serviceInfo = await hydraExpress.init(config, () => {
       hydraExpress.registerRoutes({
         '/v1/blaster': require('./routes/site-v1-routes')
